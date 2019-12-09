@@ -53,7 +53,7 @@ class Manipulation {
    * @return None
    */
   void getToyPosition();
-  
+
   /**
    * @brief Method for picking up the desired object at a known position  
    *
@@ -63,7 +63,7 @@ class Manipulation {
    *                false
    */
   bool pickup();
-  
+
   /**
    * @brief Method for dropping the object in hand at a desired location 
    *

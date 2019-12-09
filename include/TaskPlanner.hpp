@@ -34,77 +34,175 @@
 #ifndef INCLUDE_TASKPLANNER_HPP_
 #define INCLUDE_TASKPLANNER_HPP_
 
+#include "ros/ros.h"
+#include "../include/ROSModule.hpp"
+#include "../include/UserInterface.hpp"
+#include "geometry_msgs/PoseStamped.h"
+#include "kids_next_door/moveTo.h"
+#include "kids_next_door/toyFound.h"
 #include <iostream>
 #include <vector>
-#include <opencv/core/core.hpp>
-#include <opencv/highgui/highgui.hpp>
-#include <opencv/imgproc/imgproc.hpp>
-#include "ros/ros.h"
+#include <iterator>
+#include <move_base_msgs/MoveBaseAction.h>
+#include <actionlib/client/simple_action_client.h>
+#include <boost/shared_ptr.hpp>
+#include <control_msgs/PointHeadAction.h>
 
-class TaskPlanner {
+
+class TaskPlanner : public ROSModule {
  public:
+    /**
+     * @brief Constructor for class
+     *
+     * @param None
+     *
+     * @return None
+     */
+    TaskPlanner();
 
-  /**
-   * @brief search operation for scanning the area for ArUco markers  
-   *
-   * @param None
-   *
-   * @return None
-   */
-  void search();
+    /**
+     * @brief Constructor for class with input/output stream arguments
+     *
+     * @param inputStream Input Stream object
+     * 
+     * @param outputStream Output Stream object
+     *
+     * @return None
+     */
+    TaskPlanner(std::istream& inputStream, std::ostream& outputStream);
 
-  /**
-   * @brief inRangeCheck method checks if the toy object is in a reachable range
-   *        for the manipulator 
-   *
-   * @param None
-   *
-   * @return bool Returns true if the toy object is in range otherwise false
-   */
-  bool inRangeCheck();
+    /**
+     * @brief Destructor for class
+     *
+     * @param None
+     *
+     * @return None
+     */
+    ~TaskPlanner();
 
-  /**
-   * @brief Method to add a new task to the planner 
-   *
-   * @param taskID  Integer id for the new task
-   *
-   * @param taskName  Definition of the new task 
-   *
-   * @return None
-   */
-  void addNewTask(int taskID, std::string taskName);
+    /**
+     * @brief Function to initialize Service Clients
+     *
+     * @param None
+     *
+     * @return None
+     */
+    void initializeServiceClients();
 
-  /**
-   * @brief currTask outputs the integer index of the current task being 
-   *        performed by the robot 
-   *
-   * @param None
-   *
-   * @return int Integer ID of the task
-   */
-  int currTask();
+    /**
+     * @brief Calls service to move Tiago Base to given position
+     *
+     * @param pose The goal position robot is to be moved to
+     *
+     * @return Int with function execution status. -1 for call failure,
+     *         0 when call is successful but position not reachable,
+     *         1 when position is reached
+     */
+    int moveToPose(geometry_msgs::PoseStamped pose);
 
-  /**
-   * @brief Main method which switches from the current task to the next one 
-   *        based on feedback from the robot.
-   *
-   * @param None
-   *
-   * @return None
-   */
-  void taskPlanner();
+    /**
+     * @brief Calls service to look for ArUco markers on toys
+     *
+     * @param toyID ID of the ArUco marker to be searched
+     *
+     * @return Int with function execution status. -1 for call failure, 0 when
+     *         call is successful but toy not visible, 1 when toy visible
+     */
+    int lookForToy(int toyID);
 
- private :
-  /**
-   * @brief map object which contains the list of tasks to be performed
-   *        by the robot indexed by an integer key for each task.
-   */
-  std::map<int, std::string> taskList; 
 
-  /**
-   * @brief 2D grid map of the world for navigation purposes
-   */
-  cv::Mat map; 
-}
+    /**
+     * @brief Calls service to move Tiago Base to Toy position
+     *
+     * @param None
+     *
+     * @return Int with function execution status. -1 for call failure,
+     *         0 when call is successful but position not reachable,
+     *         1 when position is reached
+     */
+    int goToToy();
 
+    /**
+     * @brief Calls service to move Tiago to Toy Storage Location
+     *
+     * @param None
+     *
+     * @return Int with function execution status. -1 for call failure,
+     *         0 when call is successful but storage not reachable,
+     *         1 when storage is reached
+     */
+    int goToStorage();
+
+    /**
+     * @brief search operation for scanning the area for ArUco markers  
+     *
+     * @param searchPose Pose of the next location to go to loook for toy
+     *
+     * @return Int with function execution status. -1 for call failure,
+     *         0 when call is successful but position not reachable,
+     *         1 when position is reached
+     */
+    int search(geometry_msgs::PoseStamped searchPose);
+
+    /**
+     * @brief Calls service to pickup Toy
+     *
+     * @param None
+     *
+     * @return Int with function execution status. -1 for call failure,
+     *         0 when call is successful but toy could not be picked up,
+     *         1 when toy is successfully picked up
+     */
+    int pickUpToy();
+
+    /**
+     * @brief Calls service to store toy in storage
+     *
+     * @param None
+     *
+     * @return Int with function execution status. -1 for call failure,
+     *         0 when call is successful but toy could not be placed,
+     *         1 when toy is successfully placed in storage
+     */
+    int storeToy();
+
+    /**
+     * @brief Shuts down ROS nodes
+     *
+     * @param None
+     *
+     * @return None
+     */
+    void shutdownRobot();
+
+    /**
+     * @brief Main method which switches from the current task to the next one 
+     *        based on feedback from the robot.
+     *
+     * @param None
+     *
+     * @return None
+     */
+    int taskPlanner();
+
+
+  private :
+    /* List of ArUco tag IDs to be picked */
+    std::vector<int> toyIDs;
+
+    /* Create ROS node handle */
+    ros::NodeHandle nh;
+
+    /* Current pose of toy */
+    geometry_msgs::PoseStamped toyPose;
+
+    /* Pose of storge location */
+    geometry_msgs::PoseStamped storagePose;
+
+    /* List of way-points to traverse for exploration */
+    std::vector<geometry_msgs::PoseStamped> searchPoses;
+
+    /* Service Clients */
+    ros::ServiceClient toyFoundClient, goalPoseClient;
+};
 #endif  // INCLUDE_TASKPLANNER_HPP_

@@ -1,0 +1,316 @@
+\hypertarget{classTaskPlanner}{}\section{Task\+Planner Class Reference}
+\label{classTaskPlanner}\index{Task\+Planner@{Task\+Planner}}
+
+
+Inheritance diagram for Task\+Planner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classTaskPlanner__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Task\+Planner\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=151pt]{classTaskPlanner__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTaskPlanner_a63d11be6cf3d676ef3256ab4019537b7}{Task\+Planner} ()
+\begin{DoxyCompactList}\small\item\em Constructor for class. \end{DoxyCompactList}\item 
+\hyperlink{classTaskPlanner_a39b6eab2a22f8249d046330e833571df}{Task\+Planner} (std\+::istream \&input\+Stream, std\+::ostream \&output\+Stream)
+\begin{DoxyCompactList}\small\item\em Constructor for class with input/output stream arguments. \end{DoxyCompactList}\item 
+\hyperlink{classTaskPlanner_a551378501f7a1e6304c207c25b2400db}{$\sim$\+Task\+Planner} ()
+\begin{DoxyCompactList}\small\item\em Destructor for class. \end{DoxyCompactList}\item 
+void \hyperlink{classTaskPlanner_a6347f18c5b24392c58d4ff87ff7f256c}{initialize\+Service\+Clients} ()
+\begin{DoxyCompactList}\small\item\em Function to initialize Service Clients. \end{DoxyCompactList}\item 
+int \hyperlink{classTaskPlanner_a0a9c473acb9493472dca65bb9e17eede}{move\+To\+Pose} (geometry\+\_\+msgs\+::\+Pose\+Stamped pose)
+\begin{DoxyCompactList}\small\item\em Calls service to move Tiago Base to given position. \end{DoxyCompactList}\item 
+int \hyperlink{classTaskPlanner_aa2522c94c2269b1abbf8a811b5a98456}{look\+For\+Toy} (int toy\+ID)
+\begin{DoxyCompactList}\small\item\em Calls service to look for Ar\+Uco markers on toys. \end{DoxyCompactList}\item 
+int \hyperlink{classTaskPlanner_ab618ec1d38428184f939b0a661068ea5}{go\+To\+Toy} ()
+\begin{DoxyCompactList}\small\item\em Calls service to move Tiago Base to Toy position. \end{DoxyCompactList}\item 
+int \hyperlink{classTaskPlanner_a8c564e25fffe19f9164723fb8dac03a2}{go\+To\+Storage} ()
+\begin{DoxyCompactList}\small\item\em Calls service to move Tiago to Toy Storage Location. \end{DoxyCompactList}\item 
+int \hyperlink{classTaskPlanner_abb44ac3329ee21a3da250492c564ab74}{search} (geometry\+\_\+msgs\+::\+Pose\+Stamped search\+Pose)
+\begin{DoxyCompactList}\small\item\em search operation for scanning the area for Ar\+Uco markers \end{DoxyCompactList}\item 
+int \hyperlink{classTaskPlanner_a3b20363d2cb4b2abe5af5646c76b85d5}{pick\+Up\+Toy} ()
+\begin{DoxyCompactList}\small\item\em Calls service to pickup Toy. \end{DoxyCompactList}\item 
+int \hyperlink{classTaskPlanner_acc35c29d80d8849cfd73070633eaa3e1}{store\+Toy} ()
+\begin{DoxyCompactList}\small\item\em Calls service to store toy in storage. \end{DoxyCompactList}\item 
+void \hyperlink{classTaskPlanner_a9a7f370e15d723831153992c6b6f9cd7}{shutdown\+Robot} ()
+\begin{DoxyCompactList}\small\item\em Shuts down R\+OS nodes. \end{DoxyCompactList}\item 
+int \hyperlink{classTaskPlanner_ae0d072f084358dcda2ff6fee665aad35}{task\+Planner} ()
+\begin{DoxyCompactList}\small\item\em Main method which switches from the current task to the next one based on feedback from the robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Task\+Planner@{Task\+Planner}!Task\+Planner@{Task\+Planner}}
+\index{Task\+Planner@{Task\+Planner}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{Task\+Planner()}{TaskPlanner()}}]{\setlength{\rightskip}{0pt plus 5cm}Task\+Planner\+::\+Task\+Planner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_a63d11be6cf3d676ef3256ab4019537b7}{}\label{classTaskPlanner_a63d11be6cf3d676ef3256ab4019537b7}
+
+
+Constructor for class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!Task\+Planner@{Task\+Planner}}
+\index{Task\+Planner@{Task\+Planner}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{Task\+Planner(std\+::istream \&input\+Stream, std\+::ostream \&output\+Stream)}{TaskPlanner(std::istream &inputStream, std::ostream &outputStream)}}]{\setlength{\rightskip}{0pt plus 5cm}Task\+Planner\+::\+Task\+Planner (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{input\+Stream, }
+\item[{std\+::ostream \&}]{output\+Stream}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_a39b6eab2a22f8249d046330e833571df}{}\label{classTaskPlanner_a39b6eab2a22f8249d046330e833571df}
+
+
+Constructor for class with input/output stream arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Stream} & Input Stream object\\
+\hline
+{\em output\+Stream} & Output Stream object\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!````~Task\+Planner@{$\sim$\+Task\+Planner}}
+\index{````~Task\+Planner@{$\sim$\+Task\+Planner}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{$\sim$\+Task\+Planner()}{~TaskPlanner()}}]{\setlength{\rightskip}{0pt plus 5cm}Task\+Planner\+::$\sim$\+Task\+Planner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_a551378501f7a1e6304c207c25b2400db}{}\label{classTaskPlanner_a551378501f7a1e6304c207c25b2400db}
+
+
+Destructor for class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Task\+Planner@{Task\+Planner}!go\+To\+Storage@{go\+To\+Storage}}
+\index{go\+To\+Storage@{go\+To\+Storage}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{go\+To\+Storage()}{goToStorage()}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Planner\+::go\+To\+Storage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_a8c564e25fffe19f9164723fb8dac03a2}{}\label{classTaskPlanner_a8c564e25fffe19f9164723fb8dac03a2}
+
+
+Calls service to move Tiago to Toy Storage Location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int with function execution status. -\/1 for call failure, 0 when call is successful but storage not reachable, 1 when storage is reached 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!go\+To\+Toy@{go\+To\+Toy}}
+\index{go\+To\+Toy@{go\+To\+Toy}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{go\+To\+Toy()}{goToToy()}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Planner\+::go\+To\+Toy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_ab618ec1d38428184f939b0a661068ea5}{}\label{classTaskPlanner_ab618ec1d38428184f939b0a661068ea5}
+
+
+Calls service to move Tiago Base to Toy position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int with function execution status. -\/1 for call failure, 0 when call is successful but position not reachable, 1 when position is reached 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!initialize\+Service\+Clients@{initialize\+Service\+Clients}}
+\index{initialize\+Service\+Clients@{initialize\+Service\+Clients}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{initialize\+Service\+Clients()}{initializeServiceClients()}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Planner\+::initialize\+Service\+Clients (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classTaskPlanner_a6347f18c5b24392c58d4ff87ff7f256c}{}\label{classTaskPlanner_a6347f18c5b24392c58d4ff87ff7f256c}
+
+
+Function to initialize Service Clients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classROSModule_a0155f960b33c0fb387ff5ef37fab743b}{R\+O\+S\+Module}.
+
+\index{Task\+Planner@{Task\+Planner}!look\+For\+Toy@{look\+For\+Toy}}
+\index{look\+For\+Toy@{look\+For\+Toy}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{look\+For\+Toy(int toy\+I\+D)}{lookForToy(int toyID)}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Planner\+::look\+For\+Toy (
+\begin{DoxyParamCaption}
+\item[{int}]{toy\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_aa2522c94c2269b1abbf8a811b5a98456}{}\label{classTaskPlanner_aa2522c94c2269b1abbf8a811b5a98456}
+
+
+Calls service to look for Ar\+Uco markers on toys. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em toy\+ID} & ID of the Ar\+Uco marker to be searched\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int with function execution status. -\/1 for call failure, 0 when call is successful but toy not visible, 1 when toy visible 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!move\+To\+Pose@{move\+To\+Pose}}
+\index{move\+To\+Pose@{move\+To\+Pose}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{move\+To\+Pose(geometry\+\_\+msgs\+::\+Pose\+Stamped pose)}{moveToPose(geometry_msgs::PoseStamped pose)}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Planner\+::move\+To\+Pose (
+\begin{DoxyParamCaption}
+\item[{geometry\+\_\+msgs\+::\+Pose\+Stamped}]{pose}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_a0a9c473acb9493472dca65bb9e17eede}{}\label{classTaskPlanner_a0a9c473acb9493472dca65bb9e17eede}
+
+
+Calls service to move Tiago Base to given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & The goal position robot is to be moved to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int with function execution status. -\/1 for call failure, 0 when call is successful but position not reachable, 1 when position is reached 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!pick\+Up\+Toy@{pick\+Up\+Toy}}
+\index{pick\+Up\+Toy@{pick\+Up\+Toy}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{pick\+Up\+Toy()}{pickUpToy()}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Planner\+::pick\+Up\+Toy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_a3b20363d2cb4b2abe5af5646c76b85d5}{}\label{classTaskPlanner_a3b20363d2cb4b2abe5af5646c76b85d5}
+
+
+Calls service to pickup Toy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int with function execution status. -\/1 for call failure, 0 when call is successful but toy could not be picked up, 1 when toy is successfully picked up 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!search@{search}}
+\index{search@{search}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{search(geometry\+\_\+msgs\+::\+Pose\+Stamped search\+Pose)}{search(geometry_msgs::PoseStamped searchPose)}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Planner\+::search (
+\begin{DoxyParamCaption}
+\item[{geometry\+\_\+msgs\+::\+Pose\+Stamped}]{search\+Pose}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_abb44ac3329ee21a3da250492c564ab74}{}\label{classTaskPlanner_abb44ac3329ee21a3da250492c564ab74}
+
+
+search operation for scanning the area for Ar\+Uco markers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em search\+Pose} & Pose of the next location to go to loook for toy\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int with function execution status. -\/1 for call failure, 0 when call is successful but position not reachable, 1 when position is reached 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!shutdown\+Robot@{shutdown\+Robot}}
+\index{shutdown\+Robot@{shutdown\+Robot}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{shutdown\+Robot()}{shutdownRobot()}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Planner\+::shutdown\+Robot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_a9a7f370e15d723831153992c6b6f9cd7}{}\label{classTaskPlanner_a9a7f370e15d723831153992c6b6f9cd7}
+
+
+Shuts down R\+OS nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!store\+Toy@{store\+Toy}}
+\index{store\+Toy@{store\+Toy}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{store\+Toy()}{storeToy()}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Planner\+::store\+Toy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_acc35c29d80d8849cfd73070633eaa3e1}{}\label{classTaskPlanner_acc35c29d80d8849cfd73070633eaa3e1}
+
+
+Calls service to store toy in storage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int with function execution status. -\/1 for call failure, 0 when call is successful but toy could not be placed, 1 when toy is successfully placed in storage 
+\end{DoxyReturn}
+\index{Task\+Planner@{Task\+Planner}!task\+Planner@{task\+Planner}}
+\index{task\+Planner@{task\+Planner}!Task\+Planner@{Task\+Planner}}
+\subsubsection[{\texorpdfstring{task\+Planner()}{taskPlanner()}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Planner\+::task\+Planner (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskPlanner_ae0d072f084358dcda2ff6fee665aad35}{}\label{classTaskPlanner_ae0d072f084358dcda2ff6fee665aad35}
+
+
+Main method which switches from the current task to the next one based on feedback from the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{TaskPlanner_8hpp}{Task\+Planner.\+hpp}\end{DoxyCompactItemize}

@@ -1,0 +1,149 @@
+\hypertarget{classToyDetection}{}\section{Toy\+Detection Class Reference}
+\label{classToyDetection}\index{Toy\+Detection@{Toy\+Detection}}
+
+
+Inheritance diagram for Toy\+Detection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{classToyDetection__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Toy\+Detection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{classToyDetection__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classToyDetection_ae10edf712502b78e3b49e0421c877ea1}{Toy\+Detection} ()\hypertarget{classToyDetection_ae10edf712502b78e3b49e0421c877ea1}{}\label{classToyDetection_ae10edf712502b78e3b49e0421c877ea1}
+
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+void \hyperlink{classToyDetection_a0bc77c348ab5675c6ee59e9d184e483f}{initialize\+Subscribers} ()
+\begin{DoxyCompactList}\small\item\em Method to initialize Subscribers, inherited from \hyperlink{classROSModule}{R\+O\+S\+Module}. \end{DoxyCompactList}\item 
+void \hyperlink{classToyDetection_a410f48815e4e1727c73d41013fc9a7f3}{initialize\+Service\+Servers} ()
+\begin{DoxyCompactList}\small\item\em Method to initialize Service Servers, inherited from \hyperlink{classROSModule}{R\+O\+S\+Module}. \end{DoxyCompactList}\item 
+int \hyperlink{classToyDetection_a7198404077e6a5e5a3bb9b438b95b111}{detect\+Ar\+Uco} ()
+\begin{DoxyCompactList}\small\item\em Method to check of Ar\+Uco is detected and storing the pose by calling the /knd/found\+Toy service. \end{DoxyCompactList}\item 
+void \hyperlink{classToyDetection_a8a59388c998beaa5b2a2d4f4c6f5f63d}{detection\+Cb} (const std\+\_\+msgs\+::\+Bool\+::\+Const\+Ptr \&detection\+Flag)
+\begin{DoxyCompactList}\small\item\em Callback method for detection flag. \end{DoxyCompactList}\item 
+bool \hyperlink{classToyDetection_a124390e2ea87d3051e403caf738a9168}{find\+Toy\+Srv} (kids\+\_\+next\+\_\+door\+::toy\+Found\+::\+Request \&req, kids\+\_\+next\+\_\+door\+::toy\+Found\+::\+Response \&resp)
+\begin{DoxyCompactList}\small\item\em R\+OS serice to check and return goal Pose if toy is found. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Toy\+Detection@{Toy\+Detection}!detect\+Ar\+Uco@{detect\+Ar\+Uco}}
+\index{detect\+Ar\+Uco@{detect\+Ar\+Uco}!Toy\+Detection@{Toy\+Detection}}
+\subsubsection[{\texorpdfstring{detect\+Ar\+Uco()}{detectArUco()}}]{\setlength{\rightskip}{0pt plus 5cm}int Toy\+Detection\+::detect\+Ar\+Uco (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classToyDetection_a7198404077e6a5e5a3bb9b438b95b111}{}\label{classToyDetection_a7198404077e6a5e5a3bb9b438b95b111}
+
+
+Method to check of Ar\+Uco is detected and storing the pose by calling the /knd/found\+Toy service. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int -\/ 1 if Ar\+Uco is detected 0 otherwise 
+\end{DoxyReturn}
+\index{Toy\+Detection@{Toy\+Detection}!detection\+Cb@{detection\+Cb}}
+\index{detection\+Cb@{detection\+Cb}!Toy\+Detection@{Toy\+Detection}}
+\subsubsection[{\texorpdfstring{detection\+Cb(const std\+\_\+msgs\+::\+Bool\+::\+Const\+Ptr \&detection\+Flag)}{detectionCb(const std_msgs::Bool::ConstPtr &detectionFlag)}}]{\setlength{\rightskip}{0pt plus 5cm}void Toy\+Detection\+::detection\+Cb (
+\begin{DoxyParamCaption}
+\item[{const std\+\_\+msgs\+::\+Bool\+::\+Const\+Ptr \&}]{detection\+Flag}
+\end{DoxyParamCaption}
+)}\hypertarget{classToyDetection_a8a59388c998beaa5b2a2d4f4c6f5f63d}{}\label{classToyDetection_a8a59388c998beaa5b2a2d4f4c6f5f63d}
+
+
+Callback method for detection flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em detection\+Flag} & -\/ const reference to a detection flag bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+\index{Toy\+Detection@{Toy\+Detection}!find\+Toy\+Srv@{find\+Toy\+Srv}}
+\index{find\+Toy\+Srv@{find\+Toy\+Srv}!Toy\+Detection@{Toy\+Detection}}
+\subsubsection[{\texorpdfstring{find\+Toy\+Srv(kids\+\_\+next\+\_\+door\+::toy\+Found\+::\+Request \&req, kids\+\_\+next\+\_\+door\+::toy\+Found\+::\+Response \&resp)}{findToySrv(kids_next_door::toyFound::Request &req, kids_next_door::toyFound::Response &resp)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Toy\+Detection\+::find\+Toy\+Srv (
+\begin{DoxyParamCaption}
+\item[{kids\+\_\+next\+\_\+door\+::toy\+Found\+::\+Request \&}]{req, }
+\item[{kids\+\_\+next\+\_\+door\+::toy\+Found\+::\+Response \&}]{resp}
+\end{DoxyParamCaption}
+)}\hypertarget{classToyDetection_a124390e2ea87d3051e403caf738a9168}{}\label{classToyDetection_a124390e2ea87d3051e403caf738a9168}
+
+
+R\+OS serice to check and return goal Pose if toy is found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & -\/ service request uses integer id for a tag \\
+\hline
+{\em resp} & -\/ service response object contains bool for detection and geometry\+\_\+msgs\+::\+Pose\+Stamped msg for target Pose \\
+\hline
+\end{DoxyParams}
+\index{Toy\+Detection@{Toy\+Detection}!initialize\+Service\+Servers@{initialize\+Service\+Servers}}
+\index{initialize\+Service\+Servers@{initialize\+Service\+Servers}!Toy\+Detection@{Toy\+Detection}}
+\subsubsection[{\texorpdfstring{initialize\+Service\+Servers()}{initializeServiceServers()}}]{\setlength{\rightskip}{0pt plus 5cm}void Toy\+Detection\+::initialize\+Service\+Servers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classToyDetection_a410f48815e4e1727c73d41013fc9a7f3}{}\label{classToyDetection_a410f48815e4e1727c73d41013fc9a7f3}
+
+
+Method to initialize Service Servers, inherited from \hyperlink{classROSModule}{R\+O\+S\+Module}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classROSModule_acdaf5d8d272814d30b9c15b9b20941ee}{R\+O\+S\+Module}.
+
+\index{Toy\+Detection@{Toy\+Detection}!initialize\+Subscribers@{initialize\+Subscribers}}
+\index{initialize\+Subscribers@{initialize\+Subscribers}!Toy\+Detection@{Toy\+Detection}}
+\subsubsection[{\texorpdfstring{initialize\+Subscribers()}{initializeSubscribers()}}]{\setlength{\rightskip}{0pt plus 5cm}void Toy\+Detection\+::initialize\+Subscribers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classToyDetection_a0bc77c348ab5675c6ee59e9d184e483f}{}\label{classToyDetection_a0bc77c348ab5675c6ee59e9d184e483f}
+
+
+Method to initialize Subscribers, inherited from \hyperlink{classROSModule}{R\+O\+S\+Module}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classROSModule_a0e7a0518c74867505a4e8217c4413646}{R\+O\+S\+Module}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{ToyDetection_8hpp}{Toy\+Detection.\+hpp}\end{DoxyCompactItemize}

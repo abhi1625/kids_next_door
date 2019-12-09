@@ -1,0 +1,9 @@
+<map id="include/ROSModule.hpp" name="include/ROSModule.hpp">
+<area shape="rect" id="node2" href="$Navigation_8hpp.html" title="Header file for Manipulation module. It contains functions and data members required for the manipula..." alt="" coords="65,80,219,107"/>
+<area shape="rect" id="node4" href="$TaskPlanner_8hpp.html" title="Header file for Task planner module to make high&#45;level decisions for switching between navigation..." alt="" coords="246,80,411,107"/>
+<area shape="rect" id="node7" href="$ToyDetection_8hpp.html" title="Header file for ToyDetection module to detect and locate toys in the robot&#39;s base frame using ArUco m..." alt="" coords="541,80,711,107"/>
+<area shape="rect" id="node3" href="$NavigationTest_8cpp.html" title="Unit tests for class Navigation. " alt="" coords="5,155,167,181"/>
+<area shape="rect" id="node5" href="$TaskPlannerTest_8cpp.html" title="Unit tests for class TaskPlanner. " alt="" coords="191,155,363,181"/>
+<area shape="rect" id="node6" href="$UserInterfaceTest_8cpp.html" title="Unit tests for class UserInterface. " alt="" coords="387,155,566,181"/>
+<area shape="rect" id="node8" href="$ToyDetectionTest_8cpp.html" title="Unit tests for class ToyDetection. " alt="" coords="591,155,768,181"/>
+</map>
