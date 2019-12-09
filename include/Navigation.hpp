@@ -34,20 +34,19 @@
 #ifndef INCLUDE_NAVIGATION_HPP_
 #define INCLUDE_NAVIGATION_HPP_
 
-#include <iostream>
-#include <vector>
-#include <move_base_msgs/MoveBaseAction.h>
-#include <actionlib/client/simple_action_client.h>
 #include "ros/ros.h"
 #include "ROSModule.hpp"
 #include "geometry_msgs/PoseStamped.h"
 #include "geometry_msgs/Pose.h"
 #include "kids_next_door/moveTo.h"
+#include <iostream>
+#include <vector>
+#include <move_base_msgs/MoveBaseAction.h>
+#include <actionlib/client/simple_action_client.h>
 
 
 class Navigation : public ROSModule{
  public:
-
   Navigation();
 
   /**
@@ -61,8 +60,8 @@ class Navigation : public ROSModule{
    * @return bool - true when the service is completed
    */
 
-  bool moveToSrv(kids_next_door::moveTo::Request& req, 
-                 kids_next_door::moveTo::Response& resp);
+  bool moveToSrv(kids_next_door::moveTo::Request& req,   //NOLINT
+                kids_next_door::moveTo::Response& resp); //NOLINT
   /**
    * @brief Method for initializinig service servers inherited from the ROSModule
    *
@@ -90,10 +89,9 @@ class Navigation : public ROSModule{
    */
   move_base_msgs::MoveBaseGoal getGoal();
 
-    
   /**
    * @brief Default Destructor for navigation class
-   */    
+   */
   ~Navigation();
 
  private :
@@ -107,5 +105,4 @@ class Navigation : public ROSModule{
   ros::ServiceServer server;
 
 };
-
 #endif  // INCLUDE_NAVIGATION_HPP_

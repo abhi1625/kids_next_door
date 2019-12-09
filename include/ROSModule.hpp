@@ -40,7 +40,6 @@
 
 class ROSModule {
  public:
-
   /**
    * @brief Constructor for class
    *
@@ -48,7 +47,7 @@ class ROSModule {
    *
    * @return None
    */
-  ROSModule(){};
+  ROSModule(){}
 
   /**
    * @brief Destructor for class
@@ -57,7 +56,7 @@ class ROSModule {
    *
    * @return None
    */
-  virtual ~ROSModule(){};
+  virtual ~ROSModule(){}
 
   /**
    * @brief Function to initialize Subscribers for node
@@ -66,7 +65,7 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeSubscribers(){};
+  virtual void initializeSubscribers(){}
 
   /**
    * @brief Function to initialize Publishers for node
@@ -75,7 +74,7 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializePublishers(){};
+  virtual void initializePublishers(){}
 
   /**
    * @brief Function to initialize Service Servers for node
@@ -84,7 +83,7 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeServiceServers(){};
+  virtual void initializeServiceServers(){}
 
   /**
    * @brief Function to initialize Service Clients for node
@@ -93,7 +92,7 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeServiceClients(){};
+  virtual void initializeServiceClients(){}
 
   /**
    * @brief Function to initialize Action Client for node
@@ -102,7 +101,7 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeActionClients(){};
+  virtual void initializeActionClients(){}
 
   /**
    * @brief Function to initialize Transform Broadcasters for node
@@ -111,7 +110,7 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeTransformBroadcaster(){};
+  virtual void initializeTransformBroadcaster(){}
 
   /**
    * @brief Function to initialize Transform Listener for node
@@ -120,7 +119,7 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeTransformListener(){};
+  virtual void initializeTransformListener(){}
 };
 
 #endif  // INCLUDE_ROSMODULE_HPP_

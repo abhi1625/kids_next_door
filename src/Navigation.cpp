@@ -31,34 +31,35 @@
  *              for localization and movement of the robot through the world.
  */
 
-#include <iostream>
-#include <vector>
-#include <move_base_msgs/MoveBaseAction.h>
-#include <actionlib/client/simple_action_client.h>
-
 #include "ros/ros.h"
 #include "../include/ROSModule.hpp"
 #include "geometry_msgs/PoseStamped.h"
 #include "geometry_msgs/Pose.h"
 #include "kids_next_door/moveTo.h"
 #include "../include/Navigation.hpp"
+#include <iostream>
+#include <vector>
+#include <move_base_msgs/MoveBaseAction.h>
+#include <actionlib/client/simple_action_client.h>
+
 
 Navigation::Navigation() {
     initializeServiceServers();
 }
 
 Navigation::~Navigation(){
-} 
+}
 
 void Navigation::initializeServiceServers() {
     // define service handler for the moveT service
-    server = handler.advertiseService("/knd/moveTo", &Navigation::moveToSrv, this);
+    server = handler.advertiseService("/knd/moveTo",
+            &Navigation::moveToSrv, this);
     ROS_INFO_STREAM("Running Service");
     ros::spinOnce();
 }
 
 void Navigation::setGoal(const geometry_msgs::PoseStamped& goalPose) {
-    // set goal pose to the new received target position in the world 
+    // set goal pose to the new received target position in the world
     // coordinate frame
     goal.target_pose.header.frame_id = "map";
     goal.target_pose.header.stamp = ros::Time::now();
@@ -79,8 +80,9 @@ move_base_msgs::MoveBaseGoal Navigation::getGoal() {
 
 bool Navigation::moveToSrv(kids_next_door::moveTo::Request& req,
                            kids_next_door::moveTo::Response& resp) {
-    typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
-  
+    typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> \
+                                                          MoveBaseClient;
+
   	MoveBaseClient ac("/move_base", true);
     // initialize action lib server to start planning and moving towards goal
     while(!ac.waitForServer(ros::Duration(5.0))) {

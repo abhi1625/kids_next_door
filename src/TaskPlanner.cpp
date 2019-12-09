@@ -30,12 +30,6 @@
  * @brief       Function definition for class TaskPlanner
  */
 
-#include <iostream>
-#include <vector>
-#include <iterator>
-#include <move_base_msgs/MoveBaseAction.h>
-#include <actionlib/client/simple_action_client.h>
-
 #include "ros/ros.h"
 #include "../include/ROSModule.hpp"
 #include "../include/UserInterface.hpp"
@@ -43,6 +37,12 @@
 #include "kids_next_door/moveTo.h"
 #include "kids_next_door/toyFound.h"
 #include "../include/TaskPlanner.hpp"
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <move_base_msgs/MoveBaseAction.h>
+#include <actionlib/client/simple_action_client.h>
+
 
 TaskPlanner::TaskPlanner() {
     ROS_INFO_STREAM("Constructing TaskPlanner node...");

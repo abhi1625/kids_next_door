@@ -34,6 +34,12 @@
 #ifndef INCLUDE_TASKPLANNER_HPP_
 #define INCLUDE_TASKPLANNER_HPP_
 
+#include "ros/ros.h"
+#include "../include/ROSModule.hpp"
+#include "../include/UserInterface.hpp"
+#include "geometry_msgs/PoseStamped.h"
+#include "kids_next_door/moveTo.h"
+#include "kids_next_door/toyFound.h"
 #include <iostream>
 #include <vector>
 #include <iterator>
@@ -42,16 +48,9 @@
 #include <boost/shared_ptr.hpp>
 #include <control_msgs/PointHeadAction.h>
 
-#include "ros/ros.h"
-#include "../include/ROSModule.hpp"
-#include "../include/UserInterface.hpp"
-#include "geometry_msgs/PoseStamped.h"
-#include "kids_next_door/moveTo.h"
-#include "kids_next_door/toyFound.h"
 
 class TaskPlanner : public ROSModule {
-  public:
-
+ public:
     /**
      * @brief Constructor for class
      *
@@ -188,12 +187,8 @@ class TaskPlanner : public ROSModule {
 
 
   private :
-    // /* Map object which contains the list of tasks to be performed
-    //  *        by the robot indexed by an integer key for each task */
-    // std::map<int, std::string> taskList; 
-
     /* List of ArUco tag IDs to be picked */
-    std::vector<int> toyIDs; 
+    std::vector<int> toyIDs;
 
     /* Create ROS node handle */
     ros::NodeHandle nh;
@@ -210,5 +205,4 @@ class TaskPlanner : public ROSModule {
     /* Service Clients */
     ros::ServiceClient toyFoundClient, goalPoseClient;
 };
-
 #endif  // INCLUDE_TASKPLANNER_HPP_

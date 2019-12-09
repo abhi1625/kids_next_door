@@ -89,8 +89,8 @@ class ToyDetection : public ROSModule {
      * @param resp - service response object contains bool for detection and 
      *               geometry_msgs::PoseStamped msg for target Pose
      */
-    bool findToySrv(kids_next_door::toyFound::Request& req,
-                           kids_next_door::toyFound::Response& resp);
+    bool findToySrv(kids_next_door::toyFound::Request& req,           //NOLINT
+                           kids_next_door::toyFound::Response& resp); //NOLINT
 
     ~ToyDetection();
  private :
@@ -109,12 +109,12 @@ class ToyDetection : public ROSModule {
      * @brief ros subscriber object for aruco tag detection flag
      */
     ros::Subscriber arucoSub;
-    
+
     /**
      * @brief tf lookup to change the coordinate frame of the detected toy
      */    
     tf::StampedTransform transform;
-    
+
     /**
      * @brief tag ID of the current toy being searched for
      */
@@ -132,7 +132,7 @@ class ToyDetection : public ROSModule {
 
     /**
      * @brief PoseStamped msg for the detected ArUco tag(toy)
-     */    
+     */
     geometry_msgs::PoseStamped toyPose;
 };
 
