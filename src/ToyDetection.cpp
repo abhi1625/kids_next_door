@@ -55,6 +55,7 @@ void ToyDetection::initializeServiceServers() {
 	server = nh.advertiseService("/knd/toyFound", &ToyDetection::findToySrv, this);
 	ros::spinOnce();
 }
+
 bool ToyDetection::findToySrv(kids_next_door::toyFound::Request& req,
                            kids_next_door::toyFound::Response& resp) {
     std_msgs::Int32 id = req.id;
