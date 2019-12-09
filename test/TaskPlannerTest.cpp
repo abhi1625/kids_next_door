@@ -31,55 +31,53 @@
  */
 
 #include <gtest/gtest.h>
+#include <sstream>
 
-#include "TaskPlanner.hpp"
+#include "../include/TaskPlanner.hpp"
+#include "../include/UserInterface.hpp"
+#include "ros/ros.h"
+#include "ros/service_client.h"
 
 /**
- * @brief Test to check search functionality
+ * @brief Test to main Node functionality
  *
  * @param none
  *
  * @return none
  */
-TEST(TaskPlannerClassTest, TestSearch) {
+TEST(TaskPlannerClassTest, TestMainNode) {
+    std::istringstream mockInputBuffer("y");
+    std::ostringstream mockOutputBuffer;
+    TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
+    ASSERT_EQ(tp.taskPlanner(), 1);
 }
 
 /**
- * @brief Test to check inRangeCheck functionality
+ * @brief Test to check moveTo functionality
  *
  * @param none
  *
  * @return none
  */
-TEST(TaskPlannerClassTest, TestInRangeCheck) {
+TEST(TaskPlannerClassTest, TestMoveToPose) {
+    std::istringstream mockInputBuffer("y");
+    std::ostringstream mockOutputBuffer;
+    TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
+    geometry_msgs::PoseStamped test1;
+    ASSERT_EQ(tp.moveToPose(test1), -1);
 }
 
 /**
- * @brief Test to check addNewTask functionality
+ * @brief Test to check lookForToy functionality
  *
  * @param none
  *
  * @return none
  */
-TEST(TaskPlannerClassTest, TestAddNewTask) {
+TEST(TaskPlannerClassTest, TestLookForToy) {
+    std::istringstream mockInputBuffer("y");
+    std::ostringstream mockOutputBuffer;
+    TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
+    ASSERT_EQ(tp.lookForToy(0), -1);
 }
 
-/**
- * @brief Test to check currTask functionality
- *
- * @param none
- *
- * @return none
- */
-TEST(TaskPlannerClassTest, TestCurrTask) {
-}
-
-/**
- * @brief Test to check taskPlanner functionality
- *
- * @param none
- *
- * @return none
- */
-TEST(TaskPlannerClassTest, TestTaskPlanner) {
-}
