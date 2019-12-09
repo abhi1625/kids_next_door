@@ -61,7 +61,7 @@ The software is developed on Ubuntu 16.04 and has the following dependencies :
 
 ## Building the package
 
-To build the package, first follow the steps to install Tiago++ packages given in this [link](https://docs.google.com/spreadsheets/d/1EpZC6qNrfh5d6ULUvAsA_EainnZeKeKZD43DMa95FU4/edit?usp=sharing). Assuming the steps were followed exactly,
+To build the package, first follow the steps to install Tiago++ packages given in this [link](http://wiki.ros.org/Robots/TIAGo/Tutorials/Installation/TiagoSimulation). Assuming the steps were followed exactly,
 in the created workspace (__tiago_public_ws__), clone the repo like the following steps,
 ```
 cd ~/tiago_public_ws/src
