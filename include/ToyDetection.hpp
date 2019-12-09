@@ -36,57 +36,104 @@
 
 #include <iostream>
 #include <vector>
-#include <opencv/core/core.hpp>
-#include <opencv/highgui/highgui.hpp>
-#include <opencv/imgproc/imgproc.hpp>
+#include "../include/ROSModule.hpp"
+#include <tf/transform_listener.h>
 #include "ros/ros.h"
+#include "geometry_msgs/PoseStamped.h"
+#include "kids_next_door/toyFound.h"
 
-class ToyDetction {
+class ToyDetection : public ROSModule {
  public:
+    
+   /**
+   * @brief Default Constructor
+   */
+  ToyDetection();
 
   /**
-   * @brief detectArUco detects the ArUco marker in the current image frame
-   *        and stores the position of the toy and its ID 
+   * @brief Method to initialize Subscribers, inherited from ROSModule
    *
-   * @param currFrame Current image frame
+   * @param None
    *
    * @return None
    */
-  void detectArUcoCb(cv::Mat currFrame);
+  void initializeSubscribers();
   
-  /**
-   * @brief Publishes the pose of the detected toy(ArUco) 
-   *
-   * @param None
-   *
-   * @return None
-   */
-  void toyPositionPub();
+    /**
+     * @brief Method to initialize Service Servers, inherited from ROSModule
+     *
+     * @param None
+     *
+     * @return None
+     */
+    void initializeServiceServers();
 
-  /**
-   * @brief Callback function for the camera feed ROS subscriber
-   *
-   * @param None
-   *
-   * @return None
-   */
-  void camFeedCb();
+    /**
+     * @brief Method to check of ArUco is detected and storing the pose
+     *        by calling the /knd/foundToy service
+     * @param None
+     * @return int - 1 if ArUco is detected 0 otherwise
+     */
+    int detectArUco();
 
+    /**
+     * @brief Callback method for detection flag.
+     * @param detectionFlag - const reference to a detection flag bool
+     * @return None
+     */
+    void detectionCb(const std_msgs::Bool::ConstPtr& detectionFlag);
+
+    /**
+     * @brief ROS serice to check and return goal Pose if toy is found
+     * @param req - service request uses integer id for a tag 
+     * @param resp - service response object contains bool for detection and 
+     *               geometry_msgs::PoseStamped msg for target Pose
+     */
+    bool findToySrv(kids_next_door::toyFound::Request& req,
+                           kids_next_door::toyFound::Response& resp);
+
+    ~ToyDetection();
  private :
     /**
-     * @brief vector containing IDs of the toys detected
+     * @brief tf listener to listen to target pose of the detected
+     *        ArUco marker in the world frame
      */
-    std::vector<int> toyIDs;
+    tf::TransformListener listener;
 
     /**
-     * @brief vector containing Pose msgs for the detected toys
+     * @brief rosservice server object for find toy service
      */
-    std::vector<geometry_msgs::Pose> positions;
+    ros::ServiceServer server;
+
+    /**
+     * @brief ros subscriber object for aruco tag detection flag
+     */
+    ros::Subscriber arucoSub;
     
     /**
-     * @brief OpenCV container for the current image frame
+     * @brief tf lookup to change the coordinate frame of the detected toy
+     */    
+    tf::StampedTransform transform;
+    
+    /**
+     * @brief tag ID of the current toy being searched for
      */
-    cv::Mat currFrame;
-}
+    double currToyID;
+
+    /**
+     * @brief Node handler object for the ToyDetection class
+     */    
+    ros::NodeHandle nh; 
+
+    /**
+     * @brief detection Flag bool msg for ArUco detection
+     */
+    std_msgs::Bool detectionFlag;
+
+    /**
+     * @brief PoseStamped msg for the detected ArUco tag(toy)
+     */    
+    geometry_msgs::PoseStamped toyPose;
+};
 
 #endif  // INCLUDE_TOYDETECTION_HPP_
