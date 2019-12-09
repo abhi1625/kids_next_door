@@ -70,7 +70,7 @@ class Navigation : public ROSModule{
    *
    * @return None
    */
-  void initializeServiceServers();\
+  void initializeServiceServers();
 
   /**
    * @brief Method to set new goal position
