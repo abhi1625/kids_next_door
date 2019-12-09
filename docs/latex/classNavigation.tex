@@ -1,0 +1,127 @@
+\hypertarget{classNavigation}{}\section{Navigation Class Reference}
+\label{classNavigation}\index{Navigation@{Navigation}}
+
+
+Inheritance diagram for Navigation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{classNavigation__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Navigation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{classNavigation__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classNavigation_a31e234539cce5f116f23019246c01ff8}{move\+To\+Srv} (kids\+\_\+next\+\_\+door\+::move\+To\+::\+Request \&req, kids\+\_\+next\+\_\+door\+::move\+To\+::\+Response \&resp)
+\begin{DoxyCompactList}\small\item\em Service server which gets new target pose in request and starts moving towards it. It returns true/false once the service call is completed. \end{DoxyCompactList}\item 
+void \hyperlink{classNavigation_a6d6f40c4ccb483aea94d276907767dba}{initialize\+Service\+Servers} ()
+\begin{DoxyCompactList}\small\item\em Method for initializinig service servers inherited from the \hyperlink{classROSModule}{R\+O\+S\+Module}. \end{DoxyCompactList}\item 
+void \hyperlink{classNavigation_a94004249498512cba4b86a0933823584}{set\+Goal} (const geometry\+\_\+msgs\+::\+Pose\+Stamped \&goal\+Pose)
+\begin{DoxyCompactList}\small\item\em Method to set new goal position. \end{DoxyCompactList}\item 
+move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Goal \hyperlink{classNavigation_a03d605fee146a452bb91f9e6ae1af1b3}{get\+Goal} ()
+\begin{DoxyCompactList}\small\item\em Method for accessing the private member goal\+Pose. \end{DoxyCompactList}\item 
+\hyperlink{classNavigation_addd4022d716df48f4e55a1db69361ba7}{$\sim$\+Navigation} ()\hypertarget{classNavigation_addd4022d716df48f4e55a1db69361ba7}{}\label{classNavigation_addd4022d716df48f4e55a1db69361ba7}
+
+\begin{DoxyCompactList}\small\item\em Default Destructor for navigation class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Navigation@{Navigation}!get\+Goal@{get\+Goal}}
+\index{get\+Goal@{get\+Goal}!Navigation@{Navigation}}
+\subsubsection[{\texorpdfstring{get\+Goal()}{getGoal()}}]{\setlength{\rightskip}{0pt plus 5cm}move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Goal Navigation\+::get\+Goal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigation_a03d605fee146a452bb91f9e6ae1af1b3}{}\label{classNavigation_a03d605fee146a452bb91f9e6ae1af1b3}
+
+
+Method for accessing the private member goal\+Pose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Goal -\/ access to data member goal\+Pose 
+\end{DoxyReturn}
+\index{Navigation@{Navigation}!initialize\+Service\+Servers@{initialize\+Service\+Servers}}
+\index{initialize\+Service\+Servers@{initialize\+Service\+Servers}!Navigation@{Navigation}}
+\subsubsection[{\texorpdfstring{initialize\+Service\+Servers()}{initializeServiceServers()}}]{\setlength{\rightskip}{0pt plus 5cm}void Navigation\+::initialize\+Service\+Servers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classNavigation_a6d6f40c4ccb483aea94d276907767dba}{}\label{classNavigation_a6d6f40c4ccb483aea94d276907767dba}
+
+
+Method for initializinig service servers inherited from the \hyperlink{classROSModule}{R\+O\+S\+Module}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classROSModule_acdaf5d8d272814d30b9c15b9b20941ee}{R\+O\+S\+Module}.
+
+\index{Navigation@{Navigation}!move\+To\+Srv@{move\+To\+Srv}}
+\index{move\+To\+Srv@{move\+To\+Srv}!Navigation@{Navigation}}
+\subsubsection[{\texorpdfstring{move\+To\+Srv(kids\+\_\+next\+\_\+door\+::move\+To\+::\+Request \&req, kids\+\_\+next\+\_\+door\+::move\+To\+::\+Response \&resp)}{moveToSrv(kids_next_door::moveTo::Request &req, kids_next_door::moveTo::Response &resp)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Navigation\+::move\+To\+Srv (
+\begin{DoxyParamCaption}
+\item[{kids\+\_\+next\+\_\+door\+::move\+To\+::\+Request \&}]{req, }
+\item[{kids\+\_\+next\+\_\+door\+::move\+To\+::\+Response \&}]{resp}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigation_a31e234539cce5f116f23019246c01ff8}{}\label{classNavigation_a31e234539cce5f116f23019246c01ff8}
+
+
+Service server which gets new target pose in request and starts moving towards it. It returns true/false once the service call is completed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & -\/ service request object of new target Pose \\
+\hline
+{\em resp} & -\/ service response object of completed action\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ true when the service is completed 
+\end{DoxyReturn}
+\index{Navigation@{Navigation}!set\+Goal@{set\+Goal}}
+\index{set\+Goal@{set\+Goal}!Navigation@{Navigation}}
+\subsubsection[{\texorpdfstring{set\+Goal(const geometry\+\_\+msgs\+::\+Pose\+Stamped \&goal\+Pose)}{setGoal(const geometry_msgs::PoseStamped &goalPose)}}]{\setlength{\rightskip}{0pt plus 5cm}void Navigation\+::set\+Goal (
+\begin{DoxyParamCaption}
+\item[{const geometry\+\_\+msgs\+::\+Pose\+Stamped \&}]{goal\+Pose}
+\end{DoxyParamCaption}
+)}\hypertarget{classNavigation_a94004249498512cba4b86a0933823584}{}\label{classNavigation_a94004249498512cba4b86a0933823584}
+
+
+Method to set new goal position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em goal\+Pose} & -\/ const reference to new goal position\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Navigation_8hpp}{Navigation.\+hpp}\end{DoxyCompactItemize}
