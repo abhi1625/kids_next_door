@@ -150,6 +150,12 @@ add_executable(ToyDetection src/toyDetectionNode.cpp src/ToyDetection.cpp)
 target_link_libraries(ToyDetection ${catkin_LIBRARIES})
 add_dependencies(ToyDetection ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
+add_executable(TaskPlanner src/taskPlannerNode.cpp src/TaskPlanner.cpp src/UserInterface.cpp)
+target_link_libraries(TaskPlanner ${catkin_LIBRARIES})
+add_dependencies(TaskPlanner ${${PROJECT_NAME}_EXPORTED_TARGETS})
+# add_dependencies(kids_next_door kids_next_door_generate_messages_cpp)
+
+
 #add_executable(test_move_base src/test_move_base.cpp)
 #target_link_libraries(test_move_base ${catkin_LIBRARIES})
 
@@ -210,14 +216,19 @@ add_dependencies(ToyDetection ${${PROJECT_NAME}_EXPORTED_TARGETS})
 #############
 ## Testing ##
 #############
+
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
   add_rostest_gtest(test1 test/kndTests.test
                 test/main.cpp
                 test/NavigationTest.cpp 
                 test/ToyDetectionTest.cpp
+                test/TaskPlannerTest.cpp
+                test/UserInterfaceTest.cpp
                 src/Navigation.cpp
                 src/ToyDetection.cpp
+                src/TaskPlanner.cpp
+                src/UserInterface.cpp)
   target_link_libraries(test1 ${catkin_LIBRARIES})
 #  add_dependencies(kndTest ${catkin_EXPORTED_TARGETS})
 endif()
