@@ -94,14 +94,7 @@ std::vector<int> UserInterface::getIDs() {
     std::vector<int> toyIDs;
     /* Initializing list of toy IDs (constant for demo) */
     toyIDs.push_back(0);
-    toyIDs.push_back(0);
-    toyIDs.push_back(0);
-    toyIDs.push_back(1);
-    toyIDs.push_back(1);
     toyIDs.push_back(1);
     toyIDs.push_back(2);
-    toyIDs.push_back(2);
-    toyIDs.push_back(2);
-
     return toyIDs;
 }
