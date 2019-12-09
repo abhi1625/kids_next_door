@@ -36,46 +36,76 @@
 
 #include <iostream>
 #include <vector>
-#include <opencv/core/core.hpp>
-#include <opencv/highgui/highgui.hpp>
-#include <opencv/imgproc/imgproc.hpp>
+#include <move_base_msgs/MoveBaseAction.h>
+#include <actionlib/client/simple_action_client.h>
 #include "ros/ros.h"
+#include "ROSModule.hpp"
+#include "geometry_msgs/PoseStamped.h"
+#include "geometry_msgs/Pose.h"
+#include "kids_next_door/moveTo.h"
 
-class Navigation {
+
+class Navigation : public ROSModule{
  public:
-  /**
-   * @brief Callback method for the robot location subscriber  
-   *
-   * @param None
-   *
-   * @return None
-   */
-  void localizeCb();
-   
-  /**
-   * @brief Method for publishing goal positions for the motion robot base
-   *        through the environment  
-   *
-   * @param pos The desired pose the robot has to be moved to.
-   *
-   * @return None
-   */
-  void moveBasePub(geometry_msgs::PoseStamped pos);
+
+  Navigation();
 
   /**
-   * @brief Method for getting current pose of the robot
+   * @brief Service server which gets new target pose in request
+   *        and starts moving towards it. It returns true/false once
+   *        the service call is completed.       
+   *
+   * @param req - service request object of new target Pose 
+   * @param resp - service response object of completed action
+   *
+   * @return bool - true when the service is completed
+   */
+
+  bool moveToSrv(kids_next_door::moveTo::Request& req, 
+                 kids_next_door::moveTo::Response& resp);
+  /**
+   * @brief Method for initializinig service servers inherited from the ROSModule
    *
    * @param None
    *
-   * @return Returns variable currPos
+   * @return None
    */
-  geometry_msgs::PoseStamped getCurrPose();
-    
- private :
+  void initializeServiceServers();\
+
   /**
-   * @brief current Pose of the robot in the world coordinate frame  
+   * @brief Method to set new goal position
+   *
+   * @param goalPose - const reference to new goal position 
+   *
+   * @return None
    */
-  geometry_msgs::Pose currPos;
-}
+  void setGoal(const geometry_msgs::PoseStamped& goalPose);
+
+  /**
+   * @brief Method for accessing the private member goalPose
+   *
+   * @param None
+   *
+   * @return move_base_msgs::MoveBaseGoal - access to data member goalPose 
+   */
+  move_base_msgs::MoveBaseGoal getGoal();
+
+    
+  /**
+   * @brief Default Destructor for navigation class
+   */    
+  ~Navigation();
+
+ private :
+  /* Pose of the target in the robot's body frame */
+  move_base_msgs::MoveBaseGoal goal;
+
+  /* Node handler object for navigation node */
+  ros::NodeHandle handler;
+
+  /* Service server object for moveTo service */  
+  ros::ServiceServer server;
+
+};
 
 #endif  // INCLUDE_NAVIGATION_HPP_
