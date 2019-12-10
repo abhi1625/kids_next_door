@@ -1,7 +1,7 @@
 /******************************************************************************
  *  MIT License
  *
- *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -9,10 +9,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,9 +25,9 @@
 /**
  * @file        Navigation.hpp
  * @author      Abhinav Modi
- * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  * @date        Dec 1, 2019
- * @brief       Header file for Manipulation module. It contains functions 
+ * @brief       Header file for Manipulation module. It contains functions
  *              and data members required for the manipulation tasks like picking up
  *              and placing objects.
  */
@@ -55,7 +55,7 @@ class Manipulation {
   void getToyPosition();
 
   /**
-   * @brief Method for picking up the desired object at a known position  
+   * @brief Method for picking up the desired object at a known position
    *
    * @param None
    *
@@ -65,7 +65,7 @@ class Manipulation {
   bool pickup();
 
   /**
-   * @brief Method for dropping the object in hand at a desired location 
+   * @brief Method for dropping the object in hand at a desired location
    *
    * @param None
    *
@@ -73,9 +73,9 @@ class Manipulation {
    */
   bool drop();
 
- private :
+ private:
   /**
-   * @brief position of the toy object undergoing a manipulation task 
+   * @brief position of the toy object undergoing a manipulation task
    */
   geometry_msgs::Pose toyPosition;
 }

@@ -1,7 +1,7 @@
 /******************************************************************************
  *  MIT License
  *
- *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -9,10 +9,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,7 +25,7 @@
 /**
  * @file        Navigation.hpp
  * @author      Abhinav Modi
- * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  * @date        Dec 1, 2019
  * @brief       Header file for Navigation Module which contains methods for
  *              localization and movement of the robot through the world.
@@ -33,35 +33,33 @@
 
 #ifndef INCLUDE_NAVIGATION_HPP_
 #define INCLUDE_NAVIGATION_HPP_
-
+#include <move_base_msgs/MoveBaseAction.h>
+#include <actionlib/client/simple_action_client.h>
+#include <vector>
+#include <iostream>
 #include "ros/ros.h"
 #include "ROSModule.hpp"
 #include "geometry_msgs/PoseStamped.h"
 #include "geometry_msgs/Pose.h"
 #include "kids_next_door/moveTo.h"
-#include <iostream>
-#include <vector>
-#include <move_base_msgs/MoveBaseAction.h>
-#include <actionlib/client/simple_action_client.h>
 
-
-class Navigation : public ROSModule{
+class Navigation : public ROSModule {
  public:
   Navigation();
 
   /**
    * @brief Service server which gets new target pose in request
    *        and starts moving towards it. It returns true/false once
-   *        the service call is completed.       
+   *        the service call is completed.
    *
-   * @param req - service request object of new target Pose 
+   * @param req - service request object of new target Pose
    * @param resp - service response object of completed action
    *
    * @return bool - true when the service is completed
    */
 
-  bool moveToSrv(kids_next_door::moveTo::Request& req,   //NOLINT
-                kids_next_door::moveTo::Response& resp); //NOLINT
+  bool moveToSrv(kids_next_door::moveTo::Request &req,   //NOLINT
+      kids_next_door::moveTo::Response &resp);  //NOLINT
   /**
    * @brief Method for initializinig service servers inherited from the ROSModule
    *
@@ -74,18 +72,18 @@ class Navigation : public ROSModule{
   /**
    * @brief Method to set new goal position
    *
-   * @param goalPose - const reference to new goal position 
+   * @param goalPose - const reference to new goal position
    *
    * @return None
    */
-  void setGoal(const geometry_msgs::PoseStamped& goalPose);
+  void setGoal(const geometry_msgs::PoseStamped &goalPose);
 
   /**
    * @brief Method for accessing the private member goalPose
    *
    * @param None
    *
-   * @return move_base_msgs::MoveBaseGoal - access to data member goalPose 
+   * @return move_base_msgs::MoveBaseGoal - access to data member goalPose
    */
   move_base_msgs::MoveBaseGoal getGoal();
 
@@ -94,15 +92,14 @@ class Navigation : public ROSModule{
    */
   ~Navigation();
 
- private :
+ private:
   /* Pose of the target in the robot's body frame */
   move_base_msgs::MoveBaseGoal goal;
 
   /* Node handler object for navigation node */
   ros::NodeHandle handler;
 
-  /* Service server object for moveTo service */  
+  /* Service server object for moveTo service */
   ros::ServiceServer server;
-
 };
 #endif  // INCLUDE_NAVIGATION_HPP_

@@ -1,7 +1,7 @@
 /******************************************************************************
  *  MIT License
  *
- *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -9,10 +9,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,7 +25,7 @@
 /**
  * @file        ROSModule.hpp
  * @author      Rohan Singh
- * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  * @date        Dec 6, 2019
  * @brief       Base Header file for ROS Modules
  */
@@ -47,7 +47,8 @@ class ROSModule {
    *
    * @return None
    */
-  ROSModule(){}
+  ROSModule() {
+  }
 
   /**
    * @brief Destructor for class
@@ -56,7 +57,8 @@ class ROSModule {
    *
    * @return None
    */
-  virtual ~ROSModule(){}
+  virtual ~ROSModule() {
+  }
 
   /**
    * @brief Function to initialize Subscribers for node
@@ -65,7 +67,8 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeSubscribers(){}
+  virtual void initializeSubscribers() {
+  }
 
   /**
    * @brief Function to initialize Publishers for node
@@ -74,7 +77,8 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializePublishers(){}
+  virtual void initializePublishers() {
+  }
 
   /**
    * @brief Function to initialize Service Servers for node
@@ -83,7 +87,8 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeServiceServers(){}
+  virtual void initializeServiceServers() {
+  }
 
   /**
    * @brief Function to initialize Service Clients for node
@@ -92,7 +97,8 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeServiceClients(){}
+  virtual void initializeServiceClients() {
+  }
 
   /**
    * @brief Function to initialize Action Client for node
@@ -101,7 +107,8 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeActionClients(){}
+  virtual void initializeActionClients() {
+  }
 
   /**
    * @brief Function to initialize Transform Broadcasters for node
@@ -110,7 +117,8 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeTransformBroadcaster(){}
+  virtual void initializeTransformBroadcaster() {
+  }
 
   /**
    * @brief Function to initialize Transform Listener for node
@@ -119,7 +127,8 @@ class ROSModule {
    *
    * @return None
    */
-  virtual void initializeTransformListener(){}
+  virtual void initializeTransformListener() {
+  }
 };
 
 #endif  // INCLUDE_ROSMODULE_HPP_

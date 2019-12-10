@@ -1,7 +1,7 @@
 /******************************************************************************
  *  MIT License
  *
- *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -9,10 +9,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,7 +25,7 @@
 /**
  * @file        TaskPlannerTest.cpp
  * @author      Rohan Singh
- * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  * @date        Dec 1, 2019
  * @brief       Unit tests for class TaskPlanner
  */
@@ -46,10 +46,10 @@
  * @return none
  */
 TEST(TaskPlannerClassTest, TestMainNode) {
-    std::istringstream mockInputBuffer("y");
-    std::ostringstream mockOutputBuffer;
-    TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
-    ASSERT_EQ(tp.taskPlanner(), 1);
+  std::istringstream mockInputBuffer("y");
+  std::ostringstream mockOutputBuffer;
+  TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
+  ASSERT_EQ(tp.taskPlanner(), 1);
 }
 
 /**
@@ -60,11 +60,11 @@ TEST(TaskPlannerClassTest, TestMainNode) {
  * @return none
  */
 TEST(TaskPlannerClassTest, TestMoveToPose) {
-    std::istringstream mockInputBuffer("y");
-    std::ostringstream mockOutputBuffer;
-    TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
-    geometry_msgs::PoseStamped test1;
-    ASSERT_EQ(tp.moveToPose(test1), -1);
+  std::istringstream mockInputBuffer("y");
+  std::ostringstream mockOutputBuffer;
+  TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
+  geometry_msgs::PoseStamped test1;
+  ASSERT_EQ(tp.moveToPose(test1), -1);
 }
 
 /**
@@ -75,9 +75,9 @@ TEST(TaskPlannerClassTest, TestMoveToPose) {
  * @return none
  */
 TEST(TaskPlannerClassTest, TestLookForToy) {
-    std::istringstream mockInputBuffer("y");
-    std::ostringstream mockOutputBuffer;
-    TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
-    ASSERT_EQ(tp.lookForToy(0), -1);
+  std::istringstream mockInputBuffer("y");
+  std::ostringstream mockOutputBuffer;
+  TaskPlanner tp(mockInputBuffer, mockOutputBuffer);
+  ASSERT_EQ(tp.lookForToy(0), -1);
 }
 

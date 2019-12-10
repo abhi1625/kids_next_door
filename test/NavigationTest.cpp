@@ -1,7 +1,7 @@
 /******************************************************************************
  *  MIT License
  *
- *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ *  Copyright (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -9,10 +9,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,7 +25,7 @@
 /**
  * @file        NavigationTest.cpp
  * @author      Rohan Singh
- * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam 
+ * @copyright   MIT License (c) 2019 Rohan Singh, Abhinav Modi, Ashwin Kuruttukulam
  * @date        Dec 1, 2019
  * @brief       Unit tests for class Navigation
  */
@@ -37,27 +37,29 @@
  * @brief Test to check moveTo service
  */
 TEST(NavigationClassTest, TestMoveToService) {
-    // create node handle object
-    ros::NodeHandle n;
-    ros::ServiceClient goalPoseClient = n.serviceClient<kids_next_door::moveTo>("/knd/moveTo");
-    bool exists = goalPoseClient.waitForExistence(ros::Duration(15));
-    ASSERT_TRUE(exists);
+  // create node handle object
+  ros::NodeHandle n;
+  ros::ServiceClient goalPoseClient = n.serviceClient\
+  <kids_next_door::moveTo>("/knd/moveTo");
+  bool exists = goalPoseClient.waitForExistence(ros::Duration(15));
+  ASSERT_TRUE(exists);
 }
 
-/** 
- * @brief Test to check setGoal method to set goal 
+/**
+ * @brief Test to check setGoal method to set goal
  *		  to a received pose during the service call
  */
 TEST(NavigationClassTest, TestSetGoalMethod) {
-	Navigation nav;
-	// generate a random goal pose
-	geometry_msgs::PoseStamped randomPose;
-	randomPose.pose.position.x = 1.0;
-	randomPose.pose.orientation.w = 1.0;
-	
-	nav.setGoal(randomPose);
-	move_base_msgs::MoveBaseGoal goalPose = nav.getGoal();
-	ASSERT_EQ(goalPose.target_pose.pose.position.x, randomPose.pose.position.x);
-	ASSERT_EQ(goalPose.target_pose.pose.orientation.w, randomPose.pose.orientation.w);
+  Navigation nav;
+  // generate a random goal pose
+  geometry_msgs::PoseStamped randomPose;
+  randomPose.pose.position.x = 1.0;
+  randomPose.pose.orientation.w = 1.0;
+
+  nav.setGoal(randomPose);
+  move_base_msgs::MoveBaseGoal goalPose = nav.getGoal();
+  ASSERT_EQ(goalPose.target_pose.pose.position.x , randomPose.pose.position.x);
+  ASSERT_EQ(goalPose.target_pose.pose.orientation.w, \
+    randomPose.pose.orientation.w);
 }
 
