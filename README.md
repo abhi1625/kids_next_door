@@ -82,6 +82,8 @@ It is advisable to source the __devel/setup.bash__ file in your __.bashrc__ for 
 
 ## Running the simulation demo
 [![Packagist](https://img.shields.io/badge/Video-Simulation%20Demo-orange)](https://youtu.be/zliubN6feGw)
+[![Packagist](docs/submission2.png)](https://youtu.be/zliubN6feGw)
+
 
 Once the build is complete successfully and you have sourced the bash file, you can run it using roslaunch:
 ```
